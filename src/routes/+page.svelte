@@ -141,7 +141,7 @@
 						bind:value={jwt}
 						onblur={handleJwtChange}
 						placeholder="Paste your StreamElements JWT token here..."
-						class="w-full rounded-xl border border-zinc-800 bg-zinc-950 px-4 py-3 text-sm font-mono focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50 transition-all placeholder:text-zinc-700"
+						class="w-full rounded-xl border border-zinc-800 bg-zinc-950 px-4 py-3 text-sm font-mono focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/50 transition-all placeholder:text-zinc-700"
 						rows="3"
 					></textarea>
 				</div>
@@ -152,14 +152,14 @@
 						Fetching channel information...
 					</div>
 				{:else if channelInfo}
-					<div class="flex items-center gap-4 rounded-xl bg-emerald-500/5 p-4 border border-emerald-500/10">
-						<img src={channelInfo.profilePicUrl} alt={channelInfo.username} class="h-12 w-12 rounded-full ring-2 ring-emerald-500/20" />
+					<div class="flex items-center gap-4 rounded-xl bg-brand/5 p-4 border border-brand/10">
+						<img src={channelInfo.profilePicUrl} alt={channelInfo.username} class="h-12 w-12 rounded-full ring-2 ring-brand/20" />
 						<div>
-							<div class="text-sm font-semibold text-emerald-400">{channelInfo.displayName}</div>
+							<div class="text-sm font-semibold text-brand">{channelInfo.displayName}</div>
 							<div class="text-xs font-mono text-zinc-500">{channelInfo._id}</div>
 						</div>
-						<div class="ml-auto flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-500">
-							<div class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+						<div class="ml-auto flex items-center gap-1.5 rounded-full bg-brand/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-brand">
+							<div class="h-1.5 w-1.5 rounded-full bg-brand animate-pulse"></div>
 							Connected
 						</div>
 					</div>
@@ -178,7 +178,7 @@
 		<section class="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 space-y-6">
 			<div class="flex items-center justify-between">
 				<h2 class="text-lg font-semibold flex items-center gap-2">
-					<Send class="h-4 w-4 text-emerald-500" />
+					<Send class="h-4 w-4 text-brand" />
 					Fire Event
 				</h2>
 			</div>
@@ -189,7 +189,7 @@
 					<select
 						id="eventType"
 						bind:value={selectedEventType}
-						class="w-full appearance-none rounded-xl border border-zinc-800 bg-zinc-950 px-4 py-2.5 text-sm focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50 transition-all cursor-pointer"
+						class="w-full appearance-none rounded-xl border border-zinc-800 bg-zinc-950 px-4 py-2.5 text-sm focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/50 transition-all cursor-pointer"
 					>
 						{#each Object.keys(EVENT_CONFIGS) as type}
 							<option value={type}>{type.charAt(0).toUpperCase() + type.slice(1)}</option>
@@ -217,7 +217,7 @@
 								type={field.type}
 								bind:value={fieldValues[field.id]}
 								placeholder={field.placeholder}
-								class="w-full rounded-xl border border-zinc-800 bg-zinc-950 px-4 py-2 text-sm focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50 transition-all placeholder:text-zinc-700"
+								class="w-full rounded-xl border border-zinc-800 bg-zinc-950 px-4 py-2 text-sm focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/50 transition-all placeholder:text-zinc-700"
 							/>
 						</div>
 					{/each}
@@ -228,7 +228,7 @@
 				<button
 					onclick={handleSend}
 					disabled={isSending || !channelInfo}
-					class="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 py-3 font-semibold text-white transition-all hover:bg-emerald-500 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:active:scale-100 shadow-lg shadow-emerald-950/20"
+					class="flex w-full items-center justify-center gap-2 rounded-xl bg-brand py-3 font-semibold text-white transition-all hover:bg-brand/90 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:active:scale-100 shadow-lg shadow-brand/20"
 				>
 					{#if isSending}
 						<Loader2 class="h-5 w-5 animate-spin" />
@@ -241,7 +241,7 @@
 			</div>
 
 			{#if lastResponse}
-				<div class="flex items-center gap-3 rounded-xl border p-4 text-sm {lastResponse.success ? 'bg-emerald-500/5 border-emerald-500/10 text-emerald-400' : 'bg-red-500/5 border-red-500/10 text-red-400'}">
+				<div class="flex items-center gap-3 rounded-xl border p-4 text-sm {lastResponse.success ? 'bg-brand/5 border-brand/10 text-brand' : 'bg-red-500/5 border-red-500/10 text-red-400'}">
 					{#if lastResponse.success}
 						<CheckCircle2 class="h-5 w-5 shrink-0" />
 					{:else}
@@ -271,14 +271,14 @@
 				{:else}
 					{#each eventHistory as entry}
 						<div class="flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-950 p-3 transition-colors hover:bg-zinc-800/30">
-							<div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg {entry.success ? 'bg-emerald-500/10 text-emerald-500' : 'bg-red-500/10 text-red-500'}">
+							<div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg {entry.success ? 'bg-brand/10 text-brand' : 'bg-red-500/10 text-red-500'}">
 								<Activity class="h-4 w-4" />
 							</div>
 							<div class="min-w-0 flex-1">
 								<div class="truncate text-sm font-medium text-zinc-200 capitalize">{entry.type}</div>
 								<div class="text-[10px] text-zinc-500">{entry.time}</div>
 							</div>
-							<div class="text-[10px] font-bold uppercase tracking-widest {entry.success ? 'text-emerald-500' : 'text-red-500'}">
+							<div class="text-[10px] font-bold uppercase tracking-widest {entry.success ? 'text-brand' : 'text-red-500'}">
 								{entry.success ? 'OK' : 'ERR'}
 							</div>
 						</div>

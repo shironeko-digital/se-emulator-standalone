@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+@theme {
+  --color-brand: #5684FD;
+}
+
 @layer base {
   body {
     @apply bg-zinc-950 text-zinc-100 antialiased;
