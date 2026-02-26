@@ -9,5 +9,12 @@
 		"directory": ".svelte-kit/cloudflare"
 	},
 	"workers_dev": true,
-	"preview_urls": true
+	"preview_urls": true,
+	"routes": [
+		{
+			"pattern": "se-emulator.shironekodigital.com",
+			"zone_name": "shironekodigital.com",
+			"custom_domain": true
+		}
+	]
 }
