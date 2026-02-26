@@ -25,12 +25,12 @@
 			</div>
 			<nav class="flex items-center gap-4">
 				<a
-					href="https://github.com/StreamElements/standalone_emulator"
+					href="https://github.com/shironeko-digital/se-emulator-standalone"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
 				>
-					Reference
+					Source Code
 				</a>
 			</nav>
 		</div>

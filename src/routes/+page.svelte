@@ -13,7 +13,8 @@
 		ChevronDown,
 		History,
 		ExternalLink,
-		Activity
+		Activity,
+		ShieldCheck
 	} from 'lucide-svelte';
 	import { fetchChannelInfo, sendMockEvent, type ChannelInfo } from '$lib/api';
 	import { EVENT_CONFIGS, buildEventPayload, type EventType } from '$lib/events';
@@ -144,6 +145,10 @@
 						class="w-full rounded-xl border border-zinc-800 bg-zinc-950 px-4 py-3 text-sm font-mono focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/50 transition-all placeholder:text-zinc-700"
 						rows="3"
 					></textarea>
+					<div class="flex items-start gap-2 text-[11px] text-zinc-500">
+						<ShieldCheck class="mt-0.5 h-3.5 w-3.5 shrink-0 text-zinc-600" />
+						<p>Your token is stored only in your browser's local storage. We never transmit or store it on any server. <a href="https://github.com/shironeko-digital/se-emulator-standalone" target="_blank" rel="noopener noreferrer" class="underline hover:text-zinc-300 transition-colors">Verify the source code</a>.</p>
+					</div>
 				</div>
 
 				{#if isLoadingChannel}
