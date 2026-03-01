@@ -31,6 +31,9 @@
 	let isSending = $state(false);
 	let lastResponse = $state<{ success: boolean; message: string; data?: any } | null>(null);
 	let eventHistory = $state<Array<{ type: EventType; time: string; success: boolean }>>([]);
+	let jwtFocused = $state(false);
+
+	const censoredJwt = $derived(jwt.length > 8 ? jwt.slice(0, 8) + '•'.repeat(jwt.length - 8) : jwt);
 
 	// Sync JWT to localStorage
 	onMount(() => {
@@ -139,8 +142,10 @@
 					</label>
 					<textarea
 						id="jwt"
-						bind:value={jwt}
-						onblur={handleJwtChange}
+						value={jwtFocused ? jwt : censoredJwt}
+						oninput={(e) => { jwt = e.currentTarget.value; }}
+						onfocus={() => { jwtFocused = true; }}
+						onblur={() => { jwtFocused = false; handleJwtChange(); }}
 						placeholder="Paste your StreamElements JWT token here..."
 						class="w-full rounded-xl border border-zinc-800 bg-zinc-950 px-4 py-3 text-sm font-mono focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/50 transition-all placeholder:text-zinc-700"
 						rows="3"
