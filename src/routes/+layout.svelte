@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Activity } from 'lucide-svelte';
+	import { Activity, Github } from 'lucide-svelte';
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 
@@ -28,8 +28,9 @@
 					href="https://github.com/shironeko-digital/se-emulator-standalone"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+					class="inline-flex items-center gap-1.5 text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
 				>
+					<Github class="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
 					Source Code
 				</a>
 			</nav>
